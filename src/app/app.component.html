@@ -64,60 +64,62 @@
 
   <div class="card card-body shadow-sm mb-3">
     <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3 h-100">
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
           <div class="card-header">
             Query String Parameters
           </div>
           <div class="card-body">
-            <div class="row">
-              <ng-container *ngFor="let param of parameter.values; let i = index">
-                <div class="col-6">
-                  <div class="input-group mb-3">
+            <div *ngFor="let param of parameter.values; let i = index" class="bg-light border rounded p-2 mb-2">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-group mb-1">
                     <button (click)="parameter.delete(i);onChangeValues()" class="btn btn-outline-danger"><i
                         class="bi bi-x"></i></button>
                     <input (input)="onChangeValues()" [(ngModel)]="parameter.values[i].key" type="text"
                       class="form-control" placeholder="Key">
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="input-block mb-3">
+                <div class="col-sm-6">
+                  <div class="input-block mb-1">
                     <input (input)="onChangeValues()" [(ngModel)]="parameter.values[i].value" type="text"
                       class="form-control" placeholder="Value">
                   </div>
                 </div>
-              </ng-container>
-              <div class="col-12">
-                <button (click)="parameter.add();onChangeValues();" class="btn btn-outline-primary w-100">Add
-                  Parameter</button>
               </div>
+            </div>
+            <div class="col-12">
+              <button (click)="parameter.add();onChangeValues();" class="btn btn-outline-primary w-100">Add
+                Parameter</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card mb-3 h-100">
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
           <div class="card-header">
             Request Payloads
           </div>
           <div class="card-body">
-            <div class="row">
-              <ng-container *ngFor="let payl of payload.values; let i = index">
-                <div class="col-6">
-                  <div class="input-group mb-3">
-                    <button (click)="payload.delete(i)" class="btn btn-outline-danger"><i class="bi bi-x"></i></button>
+            <div *ngFor="let payl of payload.values; let i = index" class="bg-light border rounded p-2 mb-2">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-group mb-1">
+                    <button (click)="payload.delete(i);" class="btn btn-outline-danger"><i class="bi bi-x"></i></button>
                     <input [(ngModel)]="payload.values[i].key" type="text" class="form-control" placeholder="Key">
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="input-block mb-3">
-                    <input [(ngModel)]="payload.values[i].value" type="text" class="form-control" placeholder="Value">
+                <div class="col-sm-6">
+                  <div class="input-block mb-1">
+                    <textarea [(ngModel)]="payload.values[i].value" type="text" class="form-control"
+                      placeholder="Value"></textarea>
                   </div>
                 </div>
-              </ng-container>
-              <div class="col-12">
-                <button (click)="payload.add()" class="btn btn-outline-primary w-100">Add Payload</button>
               </div>
+            </div>
+            <div class="col-12">
+              <button (click)="payload.add();" class="btn btn-outline-primary w-100">Add
+                Payload</button>
             </div>
           </div>
         </div>
@@ -132,7 +134,7 @@
       </div>
       <div class="col-12">
         <div class="code-font bg-light shadow-inn-sm p-3 ">
-          <ng-container *ngIf="APIURL.result">{{APIURL.result}}</ng-container>
+          <pre *ngIf="APIURL.result">{{APIURL.result}}</pre>
           <div *ngIf="!APIURL.result" class="text-muted">Make a your API request.</div>
         </div>
       </div>
