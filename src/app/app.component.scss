@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+.container-fitwindow {
+  height: 100dvh;
+  width: 100vw;
+}
+
+.d-flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.code-font {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.shadow-inn-sm {
+  box-shadow: 0 .125rem .25rem rgba(black, .075) inset;
+  ;
+}
